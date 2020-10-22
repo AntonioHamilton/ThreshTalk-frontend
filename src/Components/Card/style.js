@@ -50,6 +50,7 @@ export const CustomTextTittle = {
   fontSize: '18px',
   marginTop: '-4px',
   padding: '15px',
+  overflowWrap: 'anywhere',
 };
 
 export const CustomTextIcons = {
