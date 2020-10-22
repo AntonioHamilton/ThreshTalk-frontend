@@ -11,6 +11,7 @@ import {
   CustomTextIcons,
   CustomTextTittle,
   CustomCommentButton,
+  ButtonWrap,
 } from './style';
 import http from '../../Services/PostApi';
 import socket from '../../Services/SocketApi';
@@ -39,14 +40,16 @@ function Card({ children, data }) {
     <Box {...CustomBox}>
       <Flex justifyContent="space-between" paddingRight="10px">
         <Text {...CustomTextTittle}>{data.message}</Text>
-        <IconButton
-          aria-label="more"
-          aria-controls="long-menu"
-          aria-haspopup="true"
-          onClick={handleClick}
-        >
-          <MoreVertIcon />
-        </IconButton>
+        <ButtonWrap>
+          <IconButton
+            aria-label="more"
+            aria-controls="long-menu"
+            aria-haspopup="true"
+            onClick={handleClick}
+          >
+            <MoreVertIcon />
+          </IconButton>
+        </ButtonWrap>
         <Menu
           id="long-menu"
           anchorEl={anchorEl}

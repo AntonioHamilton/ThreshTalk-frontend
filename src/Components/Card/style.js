@@ -1,3 +1,11 @@
+import styled from 'styled-components';
+
+export const ButtonWrap = styled.div`
+  button {
+    height: fit-content;
+  }
+`;
+
 export const CustomBox = {
   textAlign: 'center',
   border: 'solid 1px var(--border-color)',
