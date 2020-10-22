@@ -39,3 +39,7 @@ You will also see any lint errors in the console.
 ### LIKE
 
 #### Likes aren't tottaly interable between users, so that only will change locally
+
+## Deploy
+
+### I am using Vercel as host to frontend
