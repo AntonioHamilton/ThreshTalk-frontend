@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Flex } from '@chakra-ui/core';
+import { Flex, Skeleton } from '@chakra-ui/core';
 import socket from '../../Services/SocketApi';
 import Card from '../Card';
 import Comments from '../Comments';
@@ -12,11 +12,13 @@ const CustomFlex = {
 
 function Feed() {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     socket.emit('send posts');
     socket.on('posts', (posts) => {
       setData(posts);
+      setLoading(false);
     });
   }, []);
 
@@ -24,9 +26,11 @@ function Feed() {
     <Flex {...CustomFlex}>
       {data.map((post) => {
         return (
-          <Card key={post.id} data={post}>
-            <Comments comments={post.comments} id={post.id} />
-          </Card>
+          <Skeleton key={post.id} isLoaded={loading}>
+            <Card data={post}>
+              <Comments comments={post.comments} id={post.id} />
+            </Card>
+          </Skeleton>
         );
       })}
     </Flex>
