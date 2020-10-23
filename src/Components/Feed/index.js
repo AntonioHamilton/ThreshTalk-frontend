@@ -26,7 +26,7 @@ function Feed() {
     <Flex {...CustomFlex}>
       {data.map((post) => {
         return (
-          <Skeleton key={post.id} isLoaded={loading}>
+          <Skeleton key={post.id} isLoaded={!loading}>
             <Card data={post}>
               <Comments comments={post.comments} id={post.id} />
             </Card>
